@@ -57,11 +57,7 @@ public class ShoppingCart {
     */
 
     public int getItemCount() {
-        int count = 0;
-        for (CartItem item : items) {
-            count += item.getQuantity();
-        }
-        return count;
+        return items.size();
     }
 
     /**

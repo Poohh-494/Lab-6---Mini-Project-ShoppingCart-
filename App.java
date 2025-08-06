@@ -54,28 +54,28 @@ public class App{
         check("New cart should be empty", cart.getItemCount() == 0 && cart.getTotalPrice() == 0.0);
 
         cart.addItem("P001", 3); // Apple x3
-        check("Add new item correctly", cart.getItemCount() == 3 && cart.getTotalPrice() == 20.0); // BOGO: pay for 2
+        check("Add new item correctly", cart.getItemCount() == 1 && cart.getTotalPrice() == 20.0); // BOGO: pay for 2
 
         cart.addItem("P001", 2); // Apple x3+2=5
-        check("Add existing item increases quantity", cart.getItemCount() == 5 && cart.getTotalPrice() == 30.0); // BOGO: pay for 3
+        check("Add existing item increases quantity", cart.getItemCount() == 1 && cart.getTotalPrice() == 30.0); // BOGO: pay for 3
 
         cart.addItem("P002", 5); // Soda x5
-        check("Add another new item", cart.getItemCount() == 10 && cart.getTotalPrice() == 30.0 + 25.0); // 55.0
+        check("Add another new item", cart.getItemCount() == 2 && cart.getTotalPrice() == 30.0 + 25.0); // 55.0
 
         cart.addItem("P002", 1); // Soda x5+1=6
-        check("Add item to meet bulk discount threshold", cart.getItemCount() == 11 && cart.getTotalPrice() == 30.0 + (30.0 * 0.9)); // 30 + 27 = 57.0
+        check("Add item to meet bulk discount threshold", cart.getItemCount() == 2 && cart.getTotalPrice() == 30.0 + (30.0 * 0.9)); // 30 + 27 = 57.0
 
         cart.addItem("P999", 1); // Non-existent product
-        check("Adding non-existent product does not change cart", cart.getItemCount() == 11 && cart.getTotalPrice() == 57.0);
+        check("Adding non-existent product does not change cart", cart.getItemCount() == 2 && cart.getTotalPrice() == 57.0);
 
         cart.addItem("P003", 0); // Invalid quantity
-        check("Adding item with zero quantity does not change cart", cart.getItemCount() == 11 && cart.getTotalPrice() == 57.0);
+        check("Adding item with zero quantity does not change cart", cart.getItemCount() == 2 && cart.getTotalPrice() == 57.0);
 
         cart.removeItem("P002"); // Remove soda
-        check("Remove item correctly updates count and price", cart.getItemCount() == 5 && cart.getTotalPrice() == 30.0);
+        check("Remove item correctly updates count and price", cart.getItemCount() == 1 && cart.getTotalPrice() == 30.0);
 
         cart.removeItem("P999"); // Remove non-existent item
-        check("Removing non-existent item does not change cart", cart.getItemCount() == 5 && cart.getTotalPrice() == 30.0);
+        check("Removing non-existent item does not change cart", cart.getItemCount() == 1 && cart.getTotalPrice() == 30.0);
         
         cart.clearCart();
         check("Clear cart works correctly", cart.getItemCount() == 0 && cart.getTotalPrice() == 0.0);
