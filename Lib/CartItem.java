@@ -49,4 +49,20 @@ public class CartItem{
         }
         checkRep(); //ตรวจสอบหลังการเปลี่ยนแปลงสถานะ
     }
+    public String sku() {
+
+        throw new UnsupportedOperationException("Unimplemented method 'sku'");
+    }
+    public String name() {
+       
+        throw new UnsupportedOperationException("Unimplemented method 'name'");
+    }
+    public double price() {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'price'");
+    }
+    public int quantity() {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'quantity'");
+    }
 }
